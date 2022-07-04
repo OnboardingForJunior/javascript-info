@@ -22,5 +22,6 @@
 #### typeof 연산자
 
 - 괄호 안에 구하고자 하는 자료를 넣고 그 타입을 문자열로 알려준다!
-	- typeof(자료이름 or 자료값);
+	- typeof 자료이름 or 자료값;
+	- (ex) typeof 5 // 'number'
 - 특이 사항: null은 object로 반환 (실제론 그렇지 않음)
