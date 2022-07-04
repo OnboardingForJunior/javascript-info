@@ -28,5 +28,9 @@
 ##### NOT 연산자 '!'
 <br>
 - 불린형(true / false)으로 변환
-- !연산자: false 반환
-- !!연산자: true 반환
+- !연산자: truthy일때, false 반환 falsy일때, true를 반환.
+	- (ex) !23 // false
+	- (ex) !0 // true
+- !!연산자: truthy일때, true 반환 falsy일때, false를 반환.
+	- (ex) !!23 // true
+	- (ex) !!0 // false
