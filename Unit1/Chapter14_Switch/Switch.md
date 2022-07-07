@@ -3,6 +3,7 @@
 
 ### Chpater14 Switch
 <br>
+
 - 작성법: switch(x) { case 'value1': ; .... }
 - Switch는 if문과 서로 바꾸어 표현될 수 있다.
 - Switch를 읽을 때엔 위에서부터 아래까지 순차적으로 case문을 읽는다.
