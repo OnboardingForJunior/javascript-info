@@ -11,5 +11,5 @@
 	- case문을 읽는 과정중 break문을 만나거나 switch 문이 끝나면 코드의 실행은 멈춘다.
 - 값과 일치하는 case문이 없다면, default문 아래의 코드가 실행됩니다.
 - 자료형 구분
-	- prompt를 통해 1을 입력한다면 '1'이 된다.
+	- prompt를 통해 입력한 글자는 String이 된다.
 	- case문의 value가 1이라면, x가 '1'일때 case 1에 해당되지 않는다.
