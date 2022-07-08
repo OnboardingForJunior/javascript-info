@@ -12,4 +12,5 @@
 - 값과 일치하는 case문이 없다면, default문 아래의 코드가 실행됩니다.
 - 자료형 구분
 	- prompt를 통해 입력한 글자는 String이 된다.
-	- case문의 value가 1이라면, x가 '1'일때 case 1에 해당되지 않는다.
+	- case문의 value는 변수타입을 구분한다.
+	- (ex) case 1와 case '1'은 같지 않다.
