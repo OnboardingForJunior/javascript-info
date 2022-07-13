@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater10 If
+### Chapter10 If
 <br>
 if와 '?'를 사용한 조건 처리
 

@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater4 Variables
+### Chapter4 Variables
 <br>
 
 - 변수 : let, const(재선언 안됨!)
