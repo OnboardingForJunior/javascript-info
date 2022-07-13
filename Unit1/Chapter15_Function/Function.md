@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater15 Function
+### Chapter15 Function
 <br>
 - 좋은 함수는 return을 통해 출력 부분 입력 부분을 나누어야 한다.
 - 나쁜 함수

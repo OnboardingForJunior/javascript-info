@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater18 JavaScript Specials
+### Chapter18 JavaScript Specials
 1과 ~ 17과 기본 문법 정리
 <br>
 

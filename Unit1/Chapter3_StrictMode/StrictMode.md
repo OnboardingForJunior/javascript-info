@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater3 Strict Mode
+### Chapter3 Strict Mode
 <br>
 
 - 엄격 모드(strict mode)

@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater8 Math Operators
+### Chapter8 Math Operators
 <br>
 
 #### 연산자

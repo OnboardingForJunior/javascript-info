@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater17 Arrow Function
+### Chapter17 Arrow Function
 <br>
 
 - 화살표 함수: 함수 표현식을 단순하게 축약하는 기능을 한다.

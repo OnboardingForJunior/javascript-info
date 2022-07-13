@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater16 Function Expressions
+### Chapter16 Function Expressions
 <br>
 
 - 함수 표현식을 통해서도 함수를 만들 수 있다.

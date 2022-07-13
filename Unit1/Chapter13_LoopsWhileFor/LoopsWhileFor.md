@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater13 Loops: While For
+### Chapter13 Loops: While For
 <br>
 While과 For 반복문
 - While과 For는 서로 표현 가능하다.

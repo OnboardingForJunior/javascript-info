@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater6 Modal Interaction
+### Chapter6 Modal Interaction
 
 alert, prompt, confirm을 이용한 상호작용
 

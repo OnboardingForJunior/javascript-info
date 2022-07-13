@@ -1,7 +1,7 @@
 # Unit1 자바스크립트 기본
 <br>
 
-### Chpater11 Logical Operators
+### Chapter11 Logical Operators
 <br>
 자바스크립트엔 세 종류의 논리 연산자 ||(OR), &&(AND), !(NOT)이 있습니다.<br>
 자바스크립트에서만 제공하는 논리연산자의 '추가’기능을 알아봅시다.
