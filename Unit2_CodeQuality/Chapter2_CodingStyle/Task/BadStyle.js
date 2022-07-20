@@ -1,7 +1,8 @@
 // 좋지 않은 코드 스타일
 // 아래 코드가 어떤 점에서 좋지 않은지 생각해보세요.
 
-// function pow(x,n) // 1. 중괄호를 열기 전에 줄바꿈해서 오류가 나게끔 했다.
+// 변경 전
+// function pow(x,n) // 1. 불필요한 줄바꿈이라서 가독성이 떨어집니다.
 // {
 //   let result=1;
 //   for(let i=0;i<n;i++) {result*=x;} // 3. 한줄 코드로 쓸수 있음에도 불필요한 중괄호를 사용했다.
@@ -18,7 +19,8 @@
 //   alert(pow(x,n))
 // }
 
-function pow(x,n){
+// 변경 후
+function pow(x, n){
   let result = 1;
 
   for(let i = 0; i<n; i++) result*=x;
@@ -33,5 +35,5 @@ if (n <= 0){
   alert(`Power ${n} is not supported,
       please enter an integer number greater than zero`);
 } else {
-  alert(pow(x,n));
+  alert(pow(x, n));
 }

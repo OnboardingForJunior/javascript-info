@@ -6,11 +6,9 @@
 // name의 값을 Pete로 수정해보세요.
 // user에서 프로퍼티 name을 삭제하세요.
 
-let user = new Object();
-user = {
-    name : 'John',
-    surname : 'Smith',
-}
+let user = new Object(); // let user = { ... }
+user.name = 'John', // 이미 만들어진 객체에 .(dot)으로 접근해서 프로퍼티 값을 주자.
+user.surname = 'Smith',
 
 user.name = 'Pete';
 console.log(user.name)
