@@ -3,10 +3,11 @@
 // 아래와 같이 동작해야 합니다.
 
 function isEmpty(obj){
-    for(let key in obj) {
-        if (obj[key]) return false;
-    }
-    return true;
+//    for(let key in obj) {
+//        if (obj[key]) return false;
+//    }
+//    return true;
+    return Object.keys(obj).length > 0; // 위의 주석처리된 코드를 이렇게도 축약할 수 있다.
 }
 
 let schedule = {};
