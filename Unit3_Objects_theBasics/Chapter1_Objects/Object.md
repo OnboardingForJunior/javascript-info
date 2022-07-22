@@ -1,7 +1,7 @@
-# Chapter5 Data Types
+# Unit3 Objects the Basics
 <br>
 
-### Object
+### Chapter 1 Object
 <br>
 - 원시형: 숫자, 문자열, 불리언, null, undefined
 - 객체형: 키로 구분된 데이터 집합이나 복잡한 개체(entity)를 저장
