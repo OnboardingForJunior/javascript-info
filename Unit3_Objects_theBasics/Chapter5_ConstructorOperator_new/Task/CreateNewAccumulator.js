@@ -10,6 +10,12 @@
 
 let accumulator = new Accumulator(1); // 최초값: 1
 
+function Accumulator(num){
+    read : function() {
+        return num+num;
+    };
+}
+
 accumulator.read(); // 사용자가 입력한 값을 더해줌
 accumulator.read(); // 사용자가 입력한 값을 더해줌
 
