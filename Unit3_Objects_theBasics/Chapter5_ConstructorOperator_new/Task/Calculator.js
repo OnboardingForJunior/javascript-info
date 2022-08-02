@@ -5,7 +5,7 @@
 // sum() – 프로퍼티에 저장된 값 두 개를 더한 후 반환합니다.
 // mul() – 프로퍼티에 저장된 값 두 개를 곱한 후 반환합니다.
 
-let calculator = new Calculator();
+const calculator = new Calculator();
 
 function Calculator(){
     
