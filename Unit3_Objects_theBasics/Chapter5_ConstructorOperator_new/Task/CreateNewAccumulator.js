@@ -8,13 +8,15 @@
 
 // 데모를 위한 코드는 다음과 같습니다.
 
-let accumulator = new Accumulator(1); // 최초값: 1
+const accumulator = new Accumulator(1); // 최초값: 1
 
 function Accumulator(startingValue){
     this.value = +(startingValue);
 
     this.read = () => {
         return (this.value += +prompt("사용자 지정 숫자를 입력하세요.", 0));
+        // 화살표 함수의 this가 작동하는 이유 : read함수 바깥의 Accumulator 함수에서 this.value를 가져와서 썼기 때문에 기능대로 작동할 수 있습니다.
+        // Q. 일반 함수 메서드에서 바깥쪽의 this.value를 가져오는 방법이 있을까요?
     }
 
 }
