@@ -17,7 +17,7 @@ function B() {
 let a = new A;
 let b = new B;
 
-console.log( a == b ); // true
+console.log( a === b ); // true
 // 만약 가능하다면, 실행 가능한 예시를 작성해 보세요.
 
 // 가능합니다.
@@ -52,4 +52,4 @@ const banana2 = new Fruit("banana");
 console.log(`banana: ${banana.toString()}`);
 console.log(`banana2: ${banana2.toString()}`);
 
-console.log(`is Equal? ${banana == banana2}`);
+console.log(`is Equal? ${banana === banana2}`);
