@@ -11,6 +11,10 @@
 	- document.querySelector() // querySelector는 첫번째로 검색된 element를 반환해준다.
 	- // css Selector를 가져오기 때문에 #wrap .hello .h1 이런식으로 써야함!!
 - 이벤트 메서드
-	- 클릭 이벤트: addEventListner("click", [이벤트 메서드명])
 	- Web API에서 확인가능
 	- console.dir([something element])를 통해 콘솔창에 on[event 이름]으로 나온 property를 확인가능하다.
+- 클릭 이벤트: addEventListner("click", [이벤트 메서드명])
+- submit 이벤트: form 태그 안의 value를 브라우저에 넘겨준다.
+	- 방금 일어난 event에 대한 정보를 지닌 argument(인자)를 가진 채로 호출이됨.
+	- console.log([인자이름])을 통해 상세정보 확인 가능.
+	- [인자이름].preventDefault();: event로 인해 자동적으로 일어나는 브라우저의 기본동작(ex. 새로고침)을 막아준다.
