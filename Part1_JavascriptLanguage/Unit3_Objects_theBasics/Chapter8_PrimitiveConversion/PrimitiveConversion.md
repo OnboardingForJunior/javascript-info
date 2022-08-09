@@ -33,17 +33,24 @@ let user = {
 
 // test:
 console.log(user); // hint: string -> {name: "John"}
+console.log(${user}); // hint string을 테스트할 수 있습니다. hint 출력
 console.log(+user); // hint: number -> 1000
 console.log(user + 500); // hint: default -> 1500
 ```
 
 // Q. Symbol.toPrimitive의 파라미터값은 어디에서 받아오나요?
+// Symbol.toPrimitive{}는 한 세트라서 자바스크립트가 자동으로 힌트값을 가져와준다.
+// 형 변환이 발생할 때, javascript core단에서 객체의 [Symbol.toPrimitive](hint) 함수를 실행시키기 때문이다.
 
 #### toString과 valueOf
 <br>
 
 - toString은 문자열 "[object Object]"을 반환합니다.
 - valueOf는 객체 자신을 반환합니다.
+- 객체에 Symbol.toPrimitive가 없으면 자바스크립트는 아래 규칙에 따라 toString이나 valueOf를 호출한다.
+- hint가 'string’인 경우: toString -> valueOf 순
+	- (toString이 있다면 toString을 호출, toString이 없다면 valueOf를 호출함)
+- 그 외의 경우: valueOf -> toString 순으로 호출된다.
 
 ```
 let user = {
@@ -72,6 +79,9 @@ console.log(user + 500); // valueOf -> 1500
 <br>
 
 - 무조건 hint대로 반환되지는 않지만, 적어도 객체가 아닌 원시값을 반환해 준다.
+- (toString, valueOf, [toPrimitive])을 쓸때 return값으로 원시값을 써야한다.
+	- hint의 자료형으로 반환을 강제하지 않기 때문에 오류가 발생하지 않는다.
+	- 객체를 쓰면 다음 오류가 난다. (TypeError: Cannot convert object to primitive value)
 
 #### 추가 형 변환
 
