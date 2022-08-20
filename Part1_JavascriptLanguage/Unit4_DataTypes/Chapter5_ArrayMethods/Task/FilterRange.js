@@ -10,9 +10,7 @@
 const arr = [5, 3, 8, 1];
 
 function filterRange(arr, a, b){
-    const newArr = arr.filter(items => items >= a && items <= b);
-
-    return newArr;
+    return arr.filter(items => items >= a && items <= b);
 }
 
 const filtered = filterRange(arr, 1, 4);
