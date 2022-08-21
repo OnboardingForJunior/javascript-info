@@ -9,16 +9,22 @@
 
 // 예시:
 
+
 const calc = new Calculator;
 
 function Calculator(str){
     const newArr = `${str}`.split(" ");
-    const sumNumbers = (sum, current) => sum + current;
+    const sumNumbers = (sum, current, index, array) => {
+        const next = array[index+1];
+
+        if(current === '+') sum += next;
+        if(current === '-') sum -= next;
+
+        return sum;
+    }
 
     newArr.forEach((item, index, array) => {
-        if(!isNaN(+item)) {
-            item = index == 1 ? +item : +(array[index-1] + item);
-        }
+        if(!isNaN(+item)) array[index] = +item;
     });
 
     return newArr.reduce(sumNumbers);
@@ -26,19 +32,56 @@ function Calculator(str){
 
 calc.calculate = Calculator;
 
-console.log( calc.calculate("3 + 7 - 6") ); // 10
+console.log( calc.calculate("3 + 7 - 6") ); // 4
+
 // 두 번째 단계는 계산기가 새로운 연산을 학습할 수 있도록 해주는 메서드 addMethod(name, func)를 추가해 주는 것입니다.
 // 연산자 이름을 나타내는 name과 인수가 두개인 익명 함수 func(a,b)를 받는 새 메서드를 구현해야 하죠.
 
 // 구현된 메서드를 이용해 곱셈 *과 나눗셈 /, 거듭제곱 **연산자를 추가해주는 예시는 아래와 같습니다.
+/*
+const powerCalc = new Calculator;
 
-// const powerCalc = new Calculator;
-// powerCalc.addMethod("*", (a, b) => a * b);
-// powerCalc.addMethod("/", (a, b) => a / b);
-// powerCalc.addMethod("**", (a, b) => a ** b);
+function Calculator(str){
+    const newArr = `${str}`.split(" ");
 
-// const result = powerCalc.calculate("2 ** 3");
-// console.log( result ); // 8
+    // 숫자 -> number, 연산자 -> string으로 만들어주는 forEach문
+    newArr.forEach((item, index, array) => {
+        if(!isNaN(+item)) array[index] = +item;
+    });
+
+    // item 순회하며 연산해주는 forEach문
+    if(newArr[1] === "+") sumNumbers = (a, b) => sum + current;
+
+    sumNumbers = (sum, current, index, array) => {
+        const next = array[index+1];
+
+        if(current === '+') sum = sum + next;
+        if(current === '-') sum = sum - next;
+
+        return sum;
+    }
+
+    return newArr.reduce(sumNumbers);
+}
+
+powerCalc.calculate = Calculator;
+
+powerCalc.addMethod = (name, func) => {
+    const funcId = "feature/" + name;
+    const subObj = {
+        [funcId] : func,
+    }
+    powerCalc.calculate = subObj;
+    console.log("addMethod를 지납니다.", name, func, powerCalc.calculate);
+}
+
+powerCalc.addMethod("*", (a, b) => a * b); // mul
+powerCalc.addMethod("/", (a, b) => a / b); // div
+powerCalc.addMethod("**", (a, b) => a ** b); // square
+
+const result = powerCalc.calculate("2 ** 3");
+console.log( result ); // 8
+*/
 // 참고사항:
 
 // 괄호나 복잡한 표현식 없이도 본 과제를 풀 수 있습니다.
