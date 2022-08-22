@@ -53,6 +53,8 @@ new User(); // function User { ... }
 <br>
 
 - 객체를 return 한다면 this 대신 객체가 반환된다.
+  - 반환해야 할 것들은 모두 this에 저장되고, this는 자동으로 반환된다.
+  - 따라서, 생성자 함수엔 보통 return 문이 없습니다
 - 원시형을 return 한다면 return문이 무시된다.
 
 #### 생성자 내 메서드
