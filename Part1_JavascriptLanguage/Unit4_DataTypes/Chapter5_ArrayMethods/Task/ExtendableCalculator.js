@@ -10,27 +10,27 @@
 // 예시:
 
 /*
-const calc = new Calculator;
+const calc = new Calculator();
 
-function Calculator(str){
-    const newArr = `${str}`.split(" ");
-    const sumNumbers = (sum, current, index, array) => {
-        const next = array[index+1];
-
-        if(current === '+') sum += next;
-        if(current === '-') sum -= next;
-
-        return sum;
+function Calculator(){
+    this.calculate = (str) => {
+        const newArr = `${str}`.split(" ");
+        const sumNumbers = (sum, current, index, array) => {
+            const next = array[index+1];
+    
+            if(current === '+') sum += next;
+            if(current === '-') sum -= next;
+    
+            return sum;
+        }
+    
+        newArr.forEach((item, index, array) => {
+            if(!isNaN(+item)) array[index] = +item;
+        });
+    
+        return newArr.reduce(sumNumbers);    
     }
-
-    newArr.forEach((item, index, array) => {
-        if(!isNaN(+item)) array[index] = +item;
-    });
-
-    return newArr.reduce(sumNumbers);
 }
-
-calc.calculate = Calculator;
 
 console.log( calc.calculate("3 + 7 - 6") ); // 4
 */
@@ -39,39 +39,43 @@ console.log( calc.calculate("3 + 7 - 6") ); // 4
 
 // 구현된 메서드를 이용해 곱셈 *과 나눗셈 /, 거듭제곱 **연산자를 추가해주는 예시는 아래와 같습니다.
 
-const powerCalc = new Calculator;
+const powerCalc = new Calculator();
 
-function Calculator(str){
-    const newArr = `${str}`.split(" ");
-    const calcObj = {};
+function Calculator(){
+    this.addMethod = (name, func) => {
+        powerCalc.calculate[name] = func;
+    }
 
-    // 숫자 -> number, 연산자 -> string으로 만들어주는 forEach문
-    newArr.forEach((item, index, array) => {
-        if(!isNaN(+item)) array[index] = +item;
-    });
+    this.calculate = (str) => {
+        const newArr = `${str}`.split(" ");
 
-    const nums = newArr.filter(items => typeof items === "number");
-    
-    // item 순회하며 연산해주는 forEach문
-    let sumNumbers = (a, b) => a + b;
+        // 숫자 -> number, 연산자 -> string으로 만들어주는 forEach문
+        newArr.forEach((item, index, array) => {
+            if(!isNaN(+item)) array[index] = +item;
+        });
 
-    console.log("*" in calcObj);
+        const nums = newArr.filter(items => typeof items === "number");
+        // item 순회하며 연산해주는 forEach문
+        let sumNumbers = (a, b) => a + b;
 
-    return nums.reduce(sumNumbers, 0);
-}
+        if(newArr[1] === "-") sumNumbers = (a, b) => a - b;
+        else for(key in this.calculate){
+            if(key === newArr[1]) sumNumbers = this.calculate[key];
+        }
 
-powerCalc.calculate = Calculator;
-
-powerCalc.addMethod = (name, func) => {
-    powerCalc.calculate[name] = func;
+        return nums.reduce(sumNumbers);
+    }
 }
 
 powerCalc.addMethod("*", (a, b) => a * b); // mul
 powerCalc.addMethod("/", (a, b) => a / b); // div
 powerCalc.addMethod("**", (a, b) => a ** b); // square
 
-const result = powerCalc.calculate("2 ** 3");
-console.log( result ); // 8
+const result1 = powerCalc.calculate("2 ** 3");
+const result2 = powerCalc.calculate("2 * 3");
+const result3 = powerCalc.calculate("9 / 3");
+const result4 = powerCalc.calculate("9 - 3");
+console.log( result1, result2, result3, result4 ); // 8
 
 // 참고사항:
 
