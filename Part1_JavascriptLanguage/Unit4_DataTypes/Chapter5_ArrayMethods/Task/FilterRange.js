@@ -7,10 +7,14 @@
 
 // 예시:
 
-let arr = [5, 3, 8, 1];
+const arr = [5, 3, 8, 1];
 
-let filtered = filterRange(arr, 1, 4);
+function filterRange(arr, a, b){
+    return arr.filter(items => items >= a && items <= b);
+}
 
-alert( filtered ); // 3,1 (조건에 맞는 요소)
+const filtered = filterRange(arr, 1, 4);
 
-alert( arr ); // 5,3,8,1 (기존 배열은 변경되지 않았습니다.)
+console.log( filtered ); // 3,1 (조건에 맞는 요소)
+
+console.log( arr ); // 5,3,8,1 (기존 배열은 변경되지 않았습니다.)

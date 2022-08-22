@@ -4,24 +4,79 @@
 
 // Calculator는 두 단계를 거쳐 만들 수 있습니다.
 
-// 첫 번째 단계는 "1 + 2"와 같은 문자열을 받아서 “숫자 연산자 숫자” 형태(공백으로 구분)로 바꿔주는 메서드 calculate(str)를 구현하는 것입니다. 이 함수는 +와 -를 처리할 수 있어야 하고, 연산 결과를 반환해야 합니다.
+// 첫 번째 단계는 "1 + 2"와 같은 문자열을 받아서 “숫자 연산자 숫자” 형태(공백으로 구분)로 바꿔주는
+// 메서드 calculate(str)를 구현하는 것입니다. 이 함수는 +와 -를 처리할 수 있어야 하고, 연산 결과를 반환해야 합니다.
 
 // 예시:
 
-let calc = new Calculator;
+/*
+const calc = new Calculator();
 
-alert( calc.calculate("3 + 7") ); // 10
-// 두 번째 단계는 계산기가 새로운 연산을 학습할 수 있도록 해주는 메서드 addMethod(name, func)를 추가해 주는 것입니다. 연산자 이름을 나타내는 name과 인수가 두개인 익명 함수 func(a,b)를 받는 새 메서드를 구현해야 하죠.
+function Calculator(){
+    this.calculate = (str) => {
+        const newArr = `${str}`.split(" ");
+        const sumNumbers = (sum, current, index, array) => {
+            const next = array[index+1];
+    
+            if(current === '+') sum += next;
+            if(current === '-') sum -= next;
+    
+            return sum;
+        }
+    
+        newArr.forEach((item, index, array) => {
+            if(!isNaN(+item)) array[index] = +item;
+        });
+    
+        return newArr.reduce(sumNumbers);    
+    }
+}
+
+console.log( calc.calculate("3 + 7 - 6") ); // 4
+*/
+// 두 번째 단계는 계산기가 새로운 연산을 학습할 수 있도록 해주는 메서드 addMethod(name, func)를 추가해 주는 것입니다.
+// 연산자 이름을 나타내는 name과 인수가 두개인 익명 함수 func(a,b)를 받는 새 메서드를 구현해야 하죠.
 
 // 구현된 메서드를 이용해 곱셈 *과 나눗셈 /, 거듭제곱 **연산자를 추가해주는 예시는 아래와 같습니다.
 
-let powerCalc = new Calculator;
-powerCalc.addMethod("*", (a, b) => a * b);
-powerCalc.addMethod("/", (a, b) => a / b);
-powerCalc.addMethod("**", (a, b) => a ** b);
+const powerCalc = new Calculator();
 
-let result = powerCalc.calculate("2 ** 3");
-alert( result ); // 8
+function Calculator(){
+    this.addMethod = (name, func) => {
+        powerCalc.calculate[name] = func;
+    }
+
+    this.calculate = (str) => {
+        const newArr = `${str}`.split(" ");
+
+        // 숫자 -> number, 연산자 -> string으로 만들어주는 forEach문
+        newArr.forEach((item, index, array) => {
+            if(!isNaN(+item)) array[index] = +item;
+        });
+
+        const nums = newArr.filter(items => typeof items === "number");
+        // item 순회하며 연산해주는 forEach문
+        let sumNumbers = (a, b) => a + b;
+
+        if(newArr[1] === "-") sumNumbers = (a, b) => a - b;
+        else for(key in this.calculate){
+            if(key === newArr[1]) sumNumbers = this.calculate[key];
+        }
+
+        return nums.reduce(sumNumbers);
+    }
+}
+
+powerCalc.addMethod("*", (a, b) => a * b); // mul
+powerCalc.addMethod("/", (a, b) => a / b); // div
+powerCalc.addMethod("**", (a, b) => a ** b); // square
+
+const result1 = powerCalc.calculate("2 ** 3");
+const result2 = powerCalc.calculate("2 * 3");
+const result3 = powerCalc.calculate("9 / 3");
+const result4 = powerCalc.calculate("9 - 3");
+console.log( result1, result2, result3, result4 ); // 8
+
 // 참고사항:
 
 // 괄호나 복잡한 표현식 없이도 본 과제를 풀 수 있습니다.

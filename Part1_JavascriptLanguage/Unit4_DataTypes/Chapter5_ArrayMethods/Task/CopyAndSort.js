@@ -4,9 +4,15 @@
 
 // 함수 copySorted(arr)는 복사 후 정렬된 배열을 반환해야 합니다.
 
-let arr = ["HTML", "JavaScript", "CSS"];
+const arr = ["HTML", "JavaScript", "CSS"];
 
-let sorted = copySorted(arr);
+function copySorted(arr){
+    const copyArr = arr.slice();
+    // start end값을 설정하지 않음으로써 배열 전체를 복사했다.
+    return copyArr.sort();
+}
 
-alert( sorted ); // CSS, HTML, JavaScript
-alert( arr ); // HTML, JavaScript, CSS (no changes)
+const sorted = copySorted(arr);
+
+console.log( sorted ); // CSS, HTML, JavaScript
+console.log( arr ); // HTML, JavaScript, CSS (no changes)

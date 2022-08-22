@@ -7,7 +7,21 @@
 
 // 예시:
 
-camelize("background-color") == 'backgroundColor';
-camelize("list-style-image") == 'listStyleImage';
-camelize("-webkit-transition") == 'WebkitTransition';
+function camelize(str){
+	const arr = str.split("-");
+
+    const glueFunc = (items, index, array) => {
+        let glue = index !== 0 ? `${items[0]}`.toUpperCase() : items[0];
+        array[index] = glue + items.slice(1,);
+    }
+
+    arr.map(glueFunc);
+    const subArr = arr.filter(items => items !== "undefined")
+    
+    return subArr.join("");
+}
+
+console.log(camelize("background-color") == 'backgroundColor');
+console.log(camelize("list-style-image") == 'listStyleImage');
+console.log(camelize("-webkit-transition") == 'WebkitTransition');
 // 힌트: split을 사용해 문자열을 배열로 바꾼 다음 join을 사용해 다시 합치면 됩니다.

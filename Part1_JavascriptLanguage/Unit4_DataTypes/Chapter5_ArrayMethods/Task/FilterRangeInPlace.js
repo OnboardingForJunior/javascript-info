@@ -7,8 +7,15 @@
 
 // 예시:
 
-let arr = [5, 3, 8, 1];
+const arr = [5, 3, 8, 1];
+
+function filterRangeInPlace(arr, a, b){
+    arr.forEach((items, index, array) => {
+        if(items >= a && items <= b) array[index] = items;
+        else array.splice(index, 1);
+    });
+}
 
 filterRangeInPlace(arr, 1, 4); // 1과 4 사이에 있지 않은 요소는 모두 제거함
 
-alert( arr ); // [3, 1]
+console.log( arr ); // [3, 1]
