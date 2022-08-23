@@ -14,6 +14,17 @@ let users = [
 
 let usersById = groupById(users);
 
+function groupById(users){
+  const newObj = {};
+  users.reduce((sum, current) => {
+    if(sum !== undefined) newObj[sum.id] = sum;
+    newObj[current.id] = current;
+  });
+  return newObj;
+}
+
+console.log(usersById);
+
 /*
 // after the call we should have:
 
