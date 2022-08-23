@@ -6,12 +6,18 @@
 
 // 예시:
 
-function unique(arr) {
-  /* your code */
-}
 
 let strings = ["Hare", "Krishna", "Hare", "Krishna",
   "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 
-alert( unique(strings) ); // Hare, Krishna, :-O
+console.log( unique(strings) ); // Hare, Krishna, :-O
+
+function unique(arr) {
+  const babo = [];
+  arr.forEach((item, index, array) => {
+    if(array.indexOf(item) === index) babo.push(item);
+  });
+
+  return babo;
+}
