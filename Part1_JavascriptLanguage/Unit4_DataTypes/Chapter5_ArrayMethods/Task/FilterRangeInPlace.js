@@ -14,6 +14,8 @@ function filterRangeInPlace(arr, a, b){
         if(items >= a && items <= b) array[index] = items;
         else array.splice(index, 1);
     });
+    // for문은 반복문이라서 break, continue를 쓸 수 있다.
+    // forEach에서는 break, continue가 없는데, return으로 continue를 대신해서 쓸 수 있다..
 }
 
 filterRangeInPlace(arr, 1, 4); // 1과 4 사이에 있지 않은 요소는 모두 제거함

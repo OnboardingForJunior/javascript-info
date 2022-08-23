@@ -13,13 +13,11 @@ let mary = { name: "Mary", surname: "Key", id: 3 };
 
 let users = [ john, pete, mary ];
 
-let usersMapped = users.map((item, index, array) => {
-  item = {
-    fullName: array[index].name + " " + array[index].surname,
-    id : array[index].id,
+let usersMapped = users.map((item) => {
+  return {
+    fullName: item.name + " " + item.surname,
+    id : item.id,
   }
-
-  return item;
 });
 
 /*

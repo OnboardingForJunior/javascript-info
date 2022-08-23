@@ -41,32 +41,23 @@ console.log( calc.calculate("3 + 7 - 6") ); // 4
 
 const powerCalc = new Calculator();
 
-function Calculator(){
+function Calculator(){ // class function
+    const store = {
+        '+' : (a, b) => a + b,
+        '-' : (a, b) => a - b,
+    };
+
     this.addMethod = (name, func) => {
-        powerCalc.calculate[name] = func;
+        store[name] = func;
     }
 
     this.calculate = (str) => {
         const newArr = `${str}`.split(" ");
-
-        // 숫자 -> number, 연산자 -> string으로 만들어주는 forEach문
-        newArr.forEach((item, index, array) => {
-            if(!isNaN(+item)) array[index] = +item;
-        });
-
-        const nums = newArr.filter(items => typeof items === "number");
-        // item 순회하며 연산해주는 forEach문
-        let sumNumbers = (a, b) => a + b;
-
-        if(newArr[1] === "-") sumNumbers = (a, b) => a - b;
-        else for(key in this.calculate){
-            if(key === newArr[1]) sumNumbers = this.calculate[key];
-        }
-
-        return nums.reduce(sumNumbers);
+        return store[newArr[1]](+newArr[0], +newArr[2]);
     }
 }
 
+// opperator : 연산자
 powerCalc.addMethod("*", (a, b) => a * b); // mul
 powerCalc.addMethod("/", (a, b) => a / b); // div
 powerCalc.addMethod("**", (a, b) => a ** b); // square

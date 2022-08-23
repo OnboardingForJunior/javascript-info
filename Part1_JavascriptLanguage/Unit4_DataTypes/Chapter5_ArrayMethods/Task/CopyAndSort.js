@@ -7,6 +7,9 @@
 const arr = ["HTML", "JavaScript", "CSS"];
 
 function copySorted(arr){
+    // return [...arr].sort();
+    // [...arr] => arr.slice() arr를 분해해서 새로운 array에 넣어서 분해할당 한다.
+
     const copyArr = arr.slice();
     // start end값을 설정하지 않음으로써 배열 전체를 복사했다.
     return copyArr.sort();
