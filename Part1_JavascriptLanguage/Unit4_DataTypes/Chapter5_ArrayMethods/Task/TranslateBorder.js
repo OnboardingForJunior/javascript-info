@@ -10,12 +10,17 @@
 function camelize(str){
 	const arr = str.split("-");
 
-    const glueFunc = (items, index, array) => {
+    // 이름이 없는 함수 => 익명함수 (annonymous function)
+    /*
+        function() {}
+        () => {}
+    */
+
+    arr.map((items, index, array) => {
         let glue = index !== 0 ? `${items[0]}`.toUpperCase() : items[0];
         array[index] = glue + items.slice(1,);
-    }
-
-    arr.map(glueFunc);
+    });
+    
     const subArr = arr.filter(items => items !== "undefined")
     
     return subArr.join("");

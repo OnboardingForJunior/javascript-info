@@ -10,6 +10,6 @@ let mary = { name: "Mary", age: 28 };
 
 let users = [ john, pete, mary ];
 
-let names = /* 여기에 코드를 작성하세요. */
+let names = users.map((item) => item.name);
 
-alert( names ); // John, Pete, Mary
+console.log( names ); // John, Pete, Mary
