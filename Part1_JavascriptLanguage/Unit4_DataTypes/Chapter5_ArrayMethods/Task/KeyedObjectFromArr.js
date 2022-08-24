@@ -14,15 +14,22 @@ let users = [
 
 let usersById = groupById(users);
 
-function groupById(users){
-  const newObj = {};
-  users.reduce((sum, current) => {
-    if(sum !== undefined) newObj[sum.id] = sum;
-    newObj[current.id] = current;
-  });
-  return newObj;
-}
+// function groupById(users){
+//   const newObj = {};
+//   users.reduce((sum, current) => {
+//     if(sum !== undefined) newObj[sum.id] = sum;
+//     newObj[current.id] = current;
+//   });
+//   return newObj;
+// }
 
+// 클린 코드
+function groupById(users){
+  return users.reduce((sum, current) => { // (1) 첫번째 인자는 누적된 값, 두번째 인자는 현재 순회하는 값
+    sum[current.id] = current;                    // (2) 누적된 값(객체)에 key, value로 현재 값을 저장한다.
+    return sum;                                           // (3) 누적되는 값을 다음으로 넘겨준다.
+  }, {});                                                        // (4) **초기 값을 빈 객체로 설정한다.**
+}
 console.log(usersById);
 
 /*

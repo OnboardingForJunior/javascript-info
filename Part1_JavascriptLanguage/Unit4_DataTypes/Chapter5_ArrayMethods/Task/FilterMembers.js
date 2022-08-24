@@ -14,10 +14,24 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 console.log( unique(strings) ); // Hare, Krishna, :-O
 
 function unique(arr) {
-  const babo = [];
+  const newArr = [];
   arr.forEach((item, index, array) => {
-    if(array.indexOf(item) === index) babo.push(item);
+    if(array.indexOf(item) === index) newArr.push(item);
   });
 
-  return babo;
+  return newArr;
 }
+
+// includes 사용시
+// function unique(arr) {
+//   const newArr = [];
+//   arr.forEach((item) => {
+//     if(!newArr.includes(item)) newArr.push(item);
+//   });
+//   return newArr;
+// } 
+
+// 자료구조 활용
+// function unique(arr) {
+//   return [...new Set(arr)];
+// } 
