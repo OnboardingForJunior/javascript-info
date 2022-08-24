@@ -13,25 +13,29 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 
 console.log( unique(strings) ); // Hare, Krishna, :-O
 
-function unique(arr) {
-  const newArr = [];
-  arr.forEach((item, index, array) => {
-    if(array.indexOf(item) === index) newArr.push(item);
-  });
+// 내가 쓴 답지
+// function unique(arr) {
+//   const newArr = [];
+//   arr.forEach((item, index, array) => {
+//     if(array.indexOf(item) === index) newArr.push(item);
+//   });
 
-  return newArr;
-}
+//   return newArr;
+// }
 
 // includes 사용시
 // function unique(arr) {
 //   const newArr = [];
 //   arr.forEach((item) => {
 //     if(!newArr.includes(item)) newArr.push(item);
+     // newArr(빈객체)에서 item을 검색해서 안나오면, push한다. 순회할 수록 값이 누적되어 중복을 제거해준다.
 //   });
 //   return newArr;
 // } 
 
 // 자료구조 활용
-// function unique(arr) {
-//   return [...new Set(arr)];
-// } 
+function unique(arr) {
+  return [...new Set(arr)];
+  // Set 객체는 자료형에 관계 없이 원시 값과 객체 참조 모두 유일한 값을 저장한다.
+  // 집합처럼!
+} 
