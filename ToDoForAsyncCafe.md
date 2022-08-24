@@ -1,7 +1,7 @@
 ## To Do for Async Cafe
 
 
-비동기, 이벤트, 클래스 개념에 대한 실습으로 Nodejs 기반 Cafe 프로그램을 작성할 예정입니다.
+비동기, 이벤트, 클래스 개념에 대한 실습으로 Nodejs 기반 Cafe 프로그램을 작성할 예정입니다. <br />
 다음 쳅터들을 우선적으로 학습하여 프로젝트에 필요한 지식을 얻습니다.
 - [Async Cafe 프로젝트](https://github.com/OnboardingForJunior/onboarding/tree/main/04.%EB%B9%84%EB%8F%99%EA%B8%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 
