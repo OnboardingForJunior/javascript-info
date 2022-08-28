@@ -10,6 +10,14 @@
 	- 보통 객체에는 for..of를 안 쓰고 배열에 쓴다. 연산이 많아지기 때문에!
 	- 이터러블 속성은 객체에 보다 쉽게 for..of 반복문을 적용할 수 있다는 이점이 있다.
 
+#### 이벤트 ** 참고 내용
+
+1) 버블링 (default)
+	- 부모 요소로 전파...
+	- 수면위로 거품이 일듯이
+2) 캡쳐링
+	- 하위 자식으로 전파...
+
 #### Symbol.iterator
 <br>
 
@@ -37,6 +45,20 @@ for (const char of "test") {
   console.log( char ); // t, e, s, t가 차례대로 출력됨
 }
 ```
+
+#### 이터레이터
+
+- Symbol 종류!
+	- 객체 프로퍼티 키로 허용되는 타입이다. (자바스크립트에선 문자형, 심볼형만 허용한다.)
+- Symbol.iterator
+	- 이 키값이 있다면 이 객체는 순회할 수 있는 객체다.
+	- iterable한 객체다.
+	- forEach, for..of는 배열에 쓰는 반복메서드인 이터레이터를 가져온다.
+- Symbol.toPrimitive
+	- 형 변환시 hint를 받았던...!
+- Symbol.iterator의 구조
+	- Symbol.iterator 함수를 호출시 next라는 key값의 function을 반환해준다.. ** 꼭 그래야함 왜냐면 규칙이니까 **
+	- done과 value를 반환한다.
 
 #### 이터레이터를 명시적으로 호출하기
 <br>
