@@ -6,3 +6,7 @@ let user = {
   name: "John Smith",
   age: 35
 };
+
+const newUser = JSON.parse(JSON.stringify(user));
+
+console.log(newUser);
