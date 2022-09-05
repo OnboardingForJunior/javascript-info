@@ -8,20 +8,27 @@
 
 let room = {
   number: 23
+  // occupiedBy: meetup
 };
 
 let meetup = {
   title: "Conference",
   occupiedBy: [{name: "John"}, {name: "Alice"}],
   place: room
+  // self: meetup
 };
 
 // 순환 참조
+// TypeError: Converting circular structure to JSON... 순환구조부터 없앱시다!
 room.occupiedBy = meetup;
 meetup.self = meetup;
+// [[number, 23],[occupiedBy: meetup]]
 
-alert( JSON.stringify(meetup, function replacer(key, value) {
-  /* 코드를 작성할 곳 */
+console.log( JSON.stringify(meetup, function replacer(key, value) {
+  if(key === "place") return JSON.parse(JSON.stringify(value, ["number"]));
+                                                              // 키값 배열을 넣으면 해당 키값만 배열반환
+  if(key === "self") return ;
+  return value;
 }));
 
 /* 얼럿창엔 아래와 같은 결과가 출력되어야 합니다.
