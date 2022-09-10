@@ -11,9 +11,12 @@
 
 let i = 0;
 
-setTimeout(() => alert(i), 100); // ?
+setTimeout(() => console.log(i), 100); // ?
 
 // 아래 반복문을 다 도는 데 100ms 이상의 시간이 걸린다고 가정합시다.
 for(let j = 0; j < 100000000; j++) {
   i++;
 }
+
+// 정답: for문이 모두 다 돈 후에 실행시간이 100ms인 setTimeout이 실행된다.
+//       얼럿창에는 100000000이 출력된다. for문이 끝나는 동안 setTimeout은 이벤트큐에서 대기상태이기 때문이다.

@@ -7,6 +7,32 @@
 // setInterval을 이용한 방법
 // 함수 작성...
 
+/*
+function printNumbers(from, to){
+    // 타이머 아이디
+    const timerID = setInterval(() => {
+                        // 가까운 scope가 접근되니까 여기 매개변수는 비워둠.
+        console.log(from++);
+        if(from > to) clearInterval(timerID);
+    }, 1000);
+
+    return timerID;
+}
+
+printNumbers(1, 10);
+*/
 
 // 중첩 setTimeout을 이용한 방법
 // 함수 작성...
+
+function printNumbers(from, to){
+    // 함수가 실행되는 시간이 1초일때
+    console.log(from++);
+    setTimeout(function run(){
+        if(from > to) return;
+        console.log(from++);
+        setTimeout(() => run(), 1000)
+    },1000)
+}
+
+printNumbers(1, 10);
