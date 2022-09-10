@@ -103,10 +103,70 @@ console.log(height); // 200
 - 객체에도 표현식이나 함수 호출을 기본값으로 할당한다. 배열과 방법은 유사하다.
 
 #### 나머지 패턴 '...'
-<br>
+
+- 객체에 나머지 패턴을 적용해서 프로퍼티에 할당하는 방법
+```
+let options = {
+  title: "Menu",
+  height: 200,
+  width: 100
+};
+
+// title = 이름이 title인 프로퍼티
+// rest = 나머지 프로퍼티들
+let {title, ...rest} = options;
+
+// title엔 "Menu", rest엔 {height: 200, width: 100}이 할당됩니다.
+console.log(options.title); // Menu
+console.log(rest.height);  // 200
+console.log(rest.width);   // 100
+```
+
+- {…} = {…} 형태로 선언하기
+    - {…} 자바스크립트에서는 이런 구조를 코드 블록으로 인식한다.
+    - {…} = {…} 형태는 블록이 닫히면 문단이 끝나는 것으로 인식하여 에러가 발생한다.
+    - 할당문을 괄호 (…)로 감싸면 코드블록이 아니라 표현식으로 인식되어 에러가 발생하지 않는다.
+```
+let title, width, height;
+
+({title, width, height} = {title: "Menu", width: 200, height: 100});
+
+console.log( title ); // Menu
+```
 
 #### 중첩 구조 분해
-<br>
+
+- 객체나 배열이 다른 객체나 배열을 포함하는 경우에 쓰이는 복잡한 패턴의 구조분해를 말한다.
+```
+let options = {
+  size: {
+    width: 100,
+    height: 200
+  },
+  items: ["Cake", "Donut"],
+  extra: true
+};
+
+// 코드를 여러 줄에 걸쳐 작성해 의도하는 바를 명확히 드러냄
+let {
+  size: { // size 할당함
+    width,
+    height
+  },
+  items: [item1, item2], // items 할당함
+  title = "Menu", // title은 프로퍼티가 없으므로 default값을 지정해준다.
+  extra
+} = options; // 해당 변수에 options 객체의 프로퍼티를 할당하도록.
+
+// size와 items는 변수로써 출력되지 않음을 유의하자.
+console.log(title);  // Menu
+console.log(width);  // 100
+console.log(height); // 200
+console.log(item1);  // Cake
+console.log(item2);  // Donut
+console.log(extra);  //true
+```
 
 #### 똑똑한 함수 매개변수
-<br>
+
+- 
