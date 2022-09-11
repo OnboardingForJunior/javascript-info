@@ -169,4 +169,34 @@ console.log(extra);  //true
 
 #### 똑똑한 함수 매개변수
 
-- 
+- 매개변수가 많이 들어갈때 함수를 리팩토링 하는 방법
+
+```
+let options = {
+  title: "My menu",
+  width: 200,
+  height: 300
+};
+
+function showMenu({
+  title = "Untitled",
+  width: w = 100,  // width는 w에,
+  height: h = 200, // height는 h에,
+}) {
+  console.log( `${title} ${w} ${h}` ); // My Menu 100 200
+}
+
+showMenu(options); // My menu 200 300
+showMenu({}); // Untitled 100 200
+showMenu(); // error!
+```
+
+- 빈 객체를 인수 전체의 기본값으로 만들면 매개변수 없이 실행할때 발생하는 에러를 해결할 수 있다.
+
+```
+function showMenu({ title = "Menu", width = 100, height = 200 } = {}) {
+  console.log( `${title} ${width} ${height}` );
+}
+
+showMenu(); // Menu 100 200
+```
