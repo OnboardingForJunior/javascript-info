@@ -10,9 +10,53 @@
 
 // 예시:
 
-function fib(n) { /* 답안은 여기에 작성 */ }
+// function fib(n) {
+//     if(n<=1) return n;
+//     return fib(n-1) + fib(n-2);
+// }
 
-alert(fib(3)); // 2
-alert(fib(7)); // 13
-alert(fib(77)); // 5527939700884757
+function fib(n){
+    const cache = new Map();
+    cache.set(0, 0);
+
+    // 피보나치 정의
+    cache.set(1, 1);
+    cache.set(2, 1);
+
+    return recFib(n);
+
+    function recFib(n) {
+        if(n<=1) return n;
+        let a, b;
+
+        if(cache.has(n-1)) {
+            a = cache.get(n-1);
+        } else {
+            a = recFib(n-1);
+            cache.set(n-1, a);
+        }
+
+        if(cache.has(n-2)) {
+            b = cache.get(n-2);
+        } else {
+            a = recFib(n-2);
+            cache.set(n-2, a);
+        }
+
+        return a + b;
+
+        // 일반 재귀호출 사용 시 계속 계산하는 과정이 들어간다.
+        // return fib(n-1) + fib(n-2);
+    }
+}
+
+console.log(fib(3)); // 2
+console.log(fib(7)); // 13
+console.log(fib(77)); // 5527939700884757
+
+/*
+*** 1. 계산한 값 캐싱하기 ***
+2. 동적 계획법 (Dynamic Programing) - 알고리즘 기법
+*/
+
 // 주의: fib (77)를 호출했을 때 연산 시간이 1초 이상 되면 안 됩니다.

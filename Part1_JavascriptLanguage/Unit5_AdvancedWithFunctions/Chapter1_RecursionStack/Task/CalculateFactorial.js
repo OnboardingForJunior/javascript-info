@@ -14,5 +14,21 @@
 // 5! = 5 * 4 * 3 * 2 * 1 = 120
 // 재귀를 사용하여 n!을 계산하는 함수, factorial(n)을 만들어보세요.
 
-alert( factorial(5) ); // 120
+function factorial(n){
+    // (1) 탈출문
+    if(n===1) return 1;
+
+    // (2) 재귀문
+    return n * factorial(n-1);
+}
+
+console.log( factorial(5) ); // 120
 // 힌트: n!은 n * (n-1)!입니다. 3! = 3 * 2! = 3 * 2 * 1! = 6같이 말이죠.
+
+// 1! = 1 * factorial(1)
+// 2! = 2 * factorial(1)
+// 3! = 3 * factorial(2)
+// 4! = 4 * factorial(3)
+// n! = n * factorial(n-1)
+
+// 수학적 패턴~!
