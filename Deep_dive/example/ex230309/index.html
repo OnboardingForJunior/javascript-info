@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script src="index.js"></script> <!-- 모듈화. -->
+</body>
+</html>
+
+<!-- <html>
+    <body>
+        <script>
+            const arr = [1, 2, 3];
+            arr.forEach(alert);
+        </script>
+    </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>정수 증감 버튼</title>
+	<style>
+		button {
+			font-size: 16px;
+			padding: 10px;
+			margin: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		#increaseBtn {
+			background-color: red;
+		}
+
+		#decreaseBtn {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>정수 증감 버튼</h1>
+		<p>현재 숫자: <span id="number">0</span></p>
+		<button id="increaseBtn">증가</button>
+		<button id="decreaseBtn">감소</button>
+	</div>
+	<script>
+		// 증가 버튼 클릭 시 숫자를 1 증가시키는 함수
+		function increaseNumber() {
+			var numberElem = document.getElementById("number");
+			var currentNumber = parseInt(numberElem.innerText);
+			numberElem.innerText = currentNumber + 1;
+			console.log("현재 숫자: " + numberElem.innerText);
+		}
+
+		// 감소 버튼 클릭 시 숫자를 1 감소시키는 함수
+		function decreaseNumber() {
+			var numberElem = document.getElementById("number");
+			var currentNumber = parseInt(numberElem.innerText);
+			numberElem.innerText = currentNumber - 1;
+			console.log("현재 숫자: " + numberElem.innerText);
+		}
+
+		// 증가 버튼에 이벤트 리스너 추가
+		document.getElementById("increaseBtn").addEventListener("click", increaseNumber);
+
+		// 감소 버튼에 이벤트 리스너 추가
+		document.getElementById("decreaseBtn").addEventListener("click", decreaseNumber);
+	</script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>정수 증감 버튼</title>
+	<style>
+		button {
+			font-size: 16px;
+			padding: 10px;
+			margin: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>정수 증감 버튼</h1>
+		<p>현재 숫자: <span id="number">0</span></p>
+		<button id="increaseBtn">증가</button>
+		<button id="decreaseBtn">감소</button>
+	</div>
+	<script>
+		// 증가 버튼 클릭 시 숫자를 1 증가시키는 함수
+		function increaseNumber() {
+			var numberElem = document.getElementById("number");
+			var currentNumber = parseInt(numberElem.innerText);
+			numberElem.innerText = currentNumber + 1;
+			console.log("현재 숫자: " + numberElem.innerText);
+		}
+
+		// 감소 버튼 클릭 시 숫자를 1 감소시키는 함수
+		function decreaseNumber() {
+			var numberElem = document.getElementById("number");
+			var currentNumber = parseInt(numberElem.innerText);
+			numberElem.innerText = currentNumber - 1;
+			console.log("현재 숫자: " + numberElem.innerText);
+		}
+
+		// 증가 버튼에 이벤트 리스너 추가
+		document.getElementById("increaseBtn").addEventListener("click", increaseNumber);
+
+		// 감소 버튼에 이벤트 리스너 추가
+		document.getElementById("decreaseBtn").addEventListener("click", decreaseNumber);
+	</script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>정수 증감 버튼</title>
+	<style>
+		button {
+			font-size: 16px;
+			padding: 10px;
+			margin: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>정수 증감 버튼</h1>
+		<p>현재 숫자: <span id="number">0</span></p>
+		<button id="increaseBtn">증가</button>
+		<button id="decreaseBtn">감소</button>
+	</div>
+	<script>
+		// 증가 버튼 클릭 시 숫자를 1 증가시키는 함수
+		function increaseNumber() {
+			var numberElem = document.getElementById("number");
+			var currentNumber = parseInt(numberElem.innerText);
+			numberElem.innerText = currentNumber + 1;
+		}
+
+		// 감소 버튼 클릭 시 숫자를 1 감소시키는 함수
+		function decreaseNumber() {
+			var numberElem = document.getElementById("number");
+			var currentNumber = parseInt(numberElem.innerText);
+			numberElem.innerText = currentNumber - 1;
+		}
+
+		// 증가 버튼에 이벤트 리스너 추가
+		document.getElementById("increaseBtn").addEventListener("click", increaseNumber);
+
+		// 감소 버튼에 이벤트 리스너 추가
+		document.getElementById("decreaseBtn").addEventListener("click", decreaseNumber);
+	</script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Counter</title>
+</head>
+<body>
+  <div id="counter">0</div>
+  <button id="increase">+</button>
+  <button id="decrease">-</button>
+  <script>
+    // 에러를 발생시키는 코드: 선택자는 'counter-x'가 아니라 'counter'를 지정해야 한다.
+    const $counter = document.getElementById('counter'); // 제대로된 엘리먼트의 이름을 얻어오지 못했어용.
+    const $increase = document.getElementById('increase');
+    const $decrease = document.getElementById('decrease');
+
+    let num = 0;
+    const render = function () { $counter.innerHTML = num; };
+
+    $increase.onclick = function () {
+      num++;
+      console.log('increase 버튼 클릭', num);
+      render();
+    };
+
+    $decrease.onclick = function () {
+      num--;
+      console.log('decrease 버튼 클릭', num);
+      render();
+    };
+  </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>브라우저를 자동으로 실행합니다.</h1>
+    <script>
+        console.log('hello!!!');
+        console.log('hello!!!');
+        console.log('hello!!!');
+    </script>
+</body>
+</html> -->
